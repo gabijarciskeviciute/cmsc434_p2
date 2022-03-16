@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            @font-face {
+                font-family: myFont;
+                src:url("fonts/Poppins-Regular.ttf");
+            }
+
+            .font_style {
+                font-family: myFont;
+            }
+        </style>
+    </head>
+    <body style="background-color: #f4f0db;" class="font_style">
+        <div class="col-md-12 mt-4">
+            <form class="form">
+                <div class="text-center mb-4">
+                    <h1>Fit.io</h1>
+                    <p>Welcome to Fit.io! In order to help you reach your goals, we want to get to know you better. Please enter the information below.</p>
+                </div>
+            
+                <div class="form-label-group">
+                    <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                    <label for="inputEmail">Name</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <select class="form-control">
+                        <option>Imperial</option>
+                        <option>Metric</option>
+                    </select>
+                    <label for="inputHeight">Preferred Measurement System</label>
+                </div>
+            
+                <div class="form-label-group mt-2">
+                    <input type="height" id="inputHeight" class="form-control" placeholder="Height" required>
+                    <label for="inputHeight">Height</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight" required>
+                    <label for="inputWeight">Starting Weight</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight" required>
+                    <label for="inputGoalWeight">Goal Weight</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <select class="form-control">
+                        <option>Infrequent (Less than once per week)</option>
+                        <option>Frequent (Once or twice per week)</option>
+                        <option>Very Frequent (Three or more times per week)</option>
+                    </select>
+                    <label for="inputHeight">Frequency of Exercise</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <select class="form-control">
+                        <option>None (Maintain Weight)</option>
+                        <option>Normal (-1 pounds per week)</option>
+                        <option>Aggressive (-2 pounds per week)</option>
+                    </select>
+                    <label for="inputHeight">Weight Loss Plan</label>
+                </div>
+
+                <div class="form-label-group mt-2">
+                    <select class="form-control">
+                        <option>None</option>
+                        <option>Vegetarian</option>
+                        <option>Keto</option>
+                    </select>
+                    <label for="inputHeight">Dietary Preferences</label>
+                </div>
+            
+                <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="submit">Get Started!</button>
+            </form>    
+        </div>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
