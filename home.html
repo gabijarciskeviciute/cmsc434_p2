@@ -16,100 +16,234 @@
             }
         </style>
     </head>
-    <body style="background-color: #f4f0db;" class="font_style">
-        <div class="col-md-12 mt-4">
-            <div class="row">
-                <div class="col-sm-2">
-                    <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user">Graph</i></a>
-                </div>
-                <div class="col-sm-8">
-                    <div class="text-center mb-4">
-                        <h1>Home</h1>
+    <body class="font_style">
+        <div class="phone-container row">
+            <div class="col-12 mt-2 ml-2 mr-2">
+                <div class="row">
+                    <div class="col-2">
+                        <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user">Graph</i></a>
+                    </div>
+                    <div class="col-8">
+                        <div class="text-center mb-4">
+                            <h1 id="home">Home</h1>
+                        </div>
+                    </div>
+                    <div class="col-2 text-right pl-1">
+                        <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user">Settings</i></a>
                     </div>
                 </div>
-                <div class="col-sm-2 text-right">
-                    <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user">Settings</i></a>
+                <div class="text-left">
+                    <h2 id="levelText">Level 3</h2>
                 </div>
-            </div>
-            <div class="text-left">
-                <h2>Level 3</h2>
-            </div>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Level 2
+                <div class="progress">
+                    <div id="level" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
-                <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-4" id="oldLevelText">
+                        Level 2
+                    </div>
+                    <div class="col-4">
+                    </div>
+                    <div class="col-4 text-right" id="newLevelText">
+                        Level 4
+                    </div>
                 </div>
-                <div class="col-sm-2 text-right">
-                    Level 4
+                <div class="text-center mt-4">
+                    <h4>Today</h4>
                 </div>
-            </div>
-            <div class="text-center mt-4">
-                <h4>Today</h4>
-            </div>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">1280/1600</div>
-            </div>
-            <div class="text-left mt-2">
-                <p>Calories</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Protein
+                <div class="progress">
+                    <div id="calories" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">1280/1600</div>
                 </div>
-                <div class="col-sm-6 mt-1">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">30/60</div>
+                <div class="text-left mt-2">
+                    <p>Calories</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2" id="firstSub">
+                        Protein
+                    </div>
+                    <div class="col-sm-6 mt-1">
+                        <div class="progress">
+                            <div id="firstSubProg" class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">30/60</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="secondSub" class="col-sm-2">
+                        Carbs
+                    </div>
+                    <div class="col-sm-6 mt-1">
+                        <div class="progress">
+                            <div id="secondSubProg" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 67%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">675/1000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="thirdSub" class="col-sm-2">
+                        Fats
+                    </div>
+                    <div class="col-sm-6 mt-1">
+                        <div class="progress">
+                            <div id="thirdSubProg" class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">10/40</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress mt-4">
+                    <div id="steps" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">2500/10000</div>
+                </div>
+                <div class="text-left mt-2">
+                    <p>Steps</p>
+                </div>
+                <div class="progress mt-4">
+                    <div id="exercise" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 66%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">20/30</div>
+                </div>
+                <div class="text-left mt-2">
+                    <p>Exercise goal (minutes)</p>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <a href="add_food.html">
+                            <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Food</button>
+                        </a>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <a href="add_exercise.html">
+                            <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Exercise</button>
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Carbs
-                </div>
-                <div class="col-sm-6 mt-1">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 67%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">675/1000</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Fats
-                </div>
-                <div class="col-sm-6 mt-1">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">10/40</div>
-                    </div>
-                </div>
-            </div>
-            <div class="progress mt-4">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">2500/10000</div>
-            </div>
-            <div class="text-left mt-2">
-                <p>Steps</p>
-            </div>
-            <div class="progress mt-4">
-                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 66%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">20/30</div>
-            </div>
-            <div class="text-left mt-2">
-                <p>Exercise goal (minutes)</p>
-            </div>
-            <div class="row mt-5">
-                <div class="col-sm-5">
-                </div>
-                <div class="col-sm-1 text-center">
-                    <a href="#" class="btn btn-default btn-circle"><i class="fa fa-user">+</i></a>
-                </div>
-                <div class="col-sm-5">
-                    
-                </div>
-            </div>
-            
         </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
+
+<script>
+    window.onload = function(e) {
+        document.getElementById("home").innerHTML = "Hi, " + sessionStorage.name;
+        if (sessionStorage.loaded != 1) {
+            if (sessionStorage.name == "Jobob") {
+                sessionStorage.xp = 3200
+                sessionStorage.calories = 1280
+                sessionStorage.maxCalories = 1600
+                sessionStorage.protein = 30
+                sessionStorage.maxProtein = 60
+                sessionStorage.carbs = 675
+                sessionStorage.maxCarbs = 1000
+                sessionStorage.fats = 10
+                sessionStorage.maxFats = 40
+                sessionStorage.steps = 2500
+                sessionStorage.maxSteps = 10000
+                sessionStorage.exercise = 20
+                sessionStorage.maxExercise = 30
+            } else {
+                sessionStorage.xp = 0
+    
+                sessionStorage.calories = 0
+                sessionStorage.maxCalories = Math.floor(sessionStorage.weight * 6.3 + 12.9 * sessionStorage.height)
+                if (sessionStorage.loss == 1) {
+                    sessionStorage.maxCalories -= 500
+                } else if (sessionStorage.loss == 2) {
+                    sessionStorage.maxCalories -= 1000
+                }
+    
+                sessionStorage.protein = 0
+                sessionStorage.maxProtein = Math.floor(sessionStorage.weight * 0.36)
+    
+                sessionStorage.carbs = 0
+                sessionStorage.maxCarbs = Math.floor(sessionStorage.maxCalories/8)
+    
+                sessionStorage.fats = 0
+                sessionStorage.maxFats = Math.floor(sessionStorage.maxCalories/5)
+    
+                sessionStorage.steps = 0
+                sessionStorage.maxSteps = 10000
+    
+                sessionStorage.exercise = 0
+                if (sessionStorage.exercise == 0) {
+                    sessionStorage.maxExercise = 20
+                } else if (sessionStorage.exercise == 0) {
+                    sessionStorage.maxExercise = 30
+                } else {
+                    sessionStorage.maxExercise = 40
+                }
+            }
+            sessionStorage.loaded = 1
+        }
+        
+        refresh()
+    }
+
+    function refresh() {
+        var currentLevel = Math.floor(sessionStorage.xp / 1000)
+        document.getElementById("levelText").innerHTML = "Level " + currentLevel
+        if (currentLevel != 0) {
+            document.getElementById("oldLevelText").innerHTML = "Level " + (currentLevel - 1)
+        } else {
+            document.getElementById("oldLevelText").innerHTML = ""
+        }
+        document.getElementById("newLevelText").innerHTML = "Level " + (currentLevel + 1)
+        document.getElementById("level").innerHTML = Math.floor((sessionStorage.xp % 1000) / 10) + "%"
+        document.getElementById("level").style = "width: " + Math.floor((sessionStorage.xp % 1000) / 10) + "%"
+
+        document.getElementById("calories").innerHTML = sessionStorage.calories + "/" + sessionStorage.maxCalories
+        document.getElementById("calories").style = "width: " + Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) + "%"
+
+        if (sessionStorage.diet == 0) {
+            // Carbs
+            // Protein
+            // Fats
+            document.getElementById("firstSub").innerHTML = "Carbs"
+            document.getElementById("firstSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
+            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+
+            document.getElementById("secondSub").innerHTML = "Protein"
+            document.getElementById("secondSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
+            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+
+            document.getElementById("thirdSub").innerHTML = "Fats"
+            document.getElementById("thirdSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
+            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+        } else if (sessionStorage.diet == 1) {
+            // Protein
+            // Fats
+            // Carbs
+            document.getElementById("firstSub").innerHTML = "Protein"
+            document.getElementById("firstSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
+            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+
+            document.getElementById("secondSub").innerHTML = "Fats"
+            document.getElementById("secondSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
+            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+
+            document.getElementById("thirdSub").innerHTML = "Carbs"
+            document.getElementById("thirdSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
+            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+        } else {
+            // Fats
+            // Carbs
+            // Protein
+            document.getElementById("firstSub").innerHTML = "Fats"
+            document.getElementById("firstSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
+            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+
+            document.getElementById("secondSub").innerHTML = "Carbs"
+            document.getElementById("secondSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
+            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+
+            document.getElementById("thirdSub").innerHTML = "Protein"
+            document.getElementById("thirdSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
+            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+        }
+
+        document.getElementById("steps").innerHTML = sessionStorage.steps + "/" + sessionStorage.maxSteps
+        document.getElementById("steps").style = "width: " + Math.floor(sessionStorage.steps/sessionStorage.maxSteps * 100) + "%"
+
+        document.getElementById("exercise").innerHTML = sessionStorage.exercise + "/" + sessionStorage.maxExercise
+        document.getElementById("exercise").style = "width: " + Math.floor(sessionStorage.exercise/sessionStorage.maxExercise * 100) + "%"
+    }
+</script>

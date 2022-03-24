@@ -8,3 +8,10 @@
     border-radius: 25px;
     background-color: #9bdef3;
 }
+
+.phone-container {
+    height: 600px;
+    width: 450px;
+    background-color: #f4f0db;
+    overflow-y: auto;
+}
