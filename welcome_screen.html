@@ -31,7 +31,7 @@
                     </div>
     
                     <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputMeasure">
+                        <select class="form-control" id="inputMeasure" onChange="changeMeasure();">
                             <option value="0">Imperial</option>
                             <option value="1">Metric</option>
                         </select>
@@ -39,18 +39,18 @@
                     </div>
                 
                     <div class="form-label-group mt-2">
-                        <input type="height" id="inputHeight" class="form-control" placeholder="Height" required>
-                        <label for="inputHeight">Height</label>
+                        <input type="height" id="inputHeight" class="form-control" placeholder="Height (in)" required>
+                        <label id="height" for="inputHeight">Height (in)</label>
                     </div>
     
                     <div class="form-label-group mt-2">
-                        <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight" required>
-                        <label for="inputWeight">Starting Weight</label>
+                        <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight (lbs)"  onchange="weightTime()" required>
+                        <label id="weight" for="inputWeight">Starting Weight (lbs)</label>
                     </div>
     
                     <div class="form-label-group mt-2">
-                        <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight" required>
-                        <label for="inputGoalWeight">Goal Weight</label>
+                        <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
+                        <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
                     </div>
     
                     <div class="form-label-group mt-2">
@@ -63,13 +63,15 @@
                     </div>
     
                     <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputLoss">
+                        <select class="form-control" id="inputLoss" onchange="weightTime()">
                             <option value="0">None (Maintain Weight)</option>
                             <option value="1">Normal (-1 pounds per week)</option>
                             <option value="2">Aggressive (-2 pounds per week)</option>
                         </select>
                         <label for="inputLoss">Weight Loss Plan</label>
                     </div>
+
+                    <p id="suggestion" style="font-size: small;">Select a weight loss plan to see how long it will take to achieve your goals!</p>
     
                     <div class="form-label-group mt-2">
                         <select class="form-control" id="inputDiet">
@@ -91,17 +93,55 @@
 
 <script>
     function saveAndForward() {
-        // TODO IF MEASURE IS NOT IMPERIAL, CONVERT TO IMPERIAL
         sessionStorage.name = document.getElementById("inputName").value;
-        // DONT NEED TO SAVE NEXT, JUST CHECK
-        sessionStorage.measure = parseInt(document.getElementById("inputMeasure").value);
-        sessionStorage.height = parseInt(document.getElementById("inputHeight").value);
-        sessionStorage.weight = parseInt(document.getElementById("inputWeight").value);
-        sessionStorage.goalWeight = parseInt(document.getElementById("inputGoalWeight").value);
+        if (parseInt(document.getElementById("inputMeasure").value) == 1) {
+            sessionStorage.height = Math.floor(parseInt(document.getElementById("inputHeight").value) * 0.393701);
+            sessionStorage.weight = Math.floor(parseInt(document.getElementById("inputWeight").value) * 2.20462);
+            sessionStorage.goalWeight = Math.floor(parseInt(document.getElementById("inputGoalWeight").value) * 2.20462);
+        } else {
+            sessionStorage.height = parseInt(document.getElementById("inputHeight").value);
+            sessionStorage.weight = parseInt(document.getElementById("inputWeight").value);
+            sessionStorage.goalWeight = parseInt(document.getElementById("inputGoalWeight").value);
+        }
         sessionStorage.exercise = parseInt(document.getElementById("inputExercise").value);
         sessionStorage.loss = parseInt(document.getElementById("inputLoss").value);
         sessionStorage.diet = parseInt(document.getElementById("inputDiet").value);
         sessionStorage.loaded = 0
         location.href = 'home.html';
+    }
+
+    function changeMeasure() {
+        measure = parseInt(document.getElementById("inputMeasure").value);
+        console.log(measure)
+        if (measure == 0) {
+            document.getElementById("height").innerHTML = "Height (in)"
+            document.getElementById("inputHeight").placeholder = "Height (in)"
+            document.getElementById("weight").innerHTML = "Starting Weight (lbs)"
+            document.getElementById("inputWeight").placeholder = "Starting Weight (lbs)"
+            document.getElementById("goalWeight").innerHTML = "Goal Weight (lbs)"
+            document.getElementById("inputGoalWeight").placeholder = "Goal Weight (lbs)"
+        } else {
+            document.getElementById("height").innerHTML = "Height (cm)"
+            document.getElementById("inputHeight").placeholder = "Height (cm)"
+            document.getElementById("weight").innerHTML = "Starting Weight (kgs)"
+            document.getElementById("inputWeight").placeholder = "Starting Weight (kgs)"
+            document.getElementById("goalWeight").innerHTML = "Goal Weight (kgs)"
+            document.getElementById("inputGoalWeight").placeholder = "Goal Weight (kgs)"
+        }
+    }
+
+    function weightTime() {
+        if (document.getElementById("inputLoss").value != "0" &&
+            document.getElementById("inputWeight").value != "" &&
+            document.getElementById("inputGoalWeight").value != "" &&
+            parseInt(document.getElementById("inputWeight").value) > parseInt(document.getElementById("inputGoalWeight").value)) {
+                var starting = parseInt(document.getElementById("inputWeight").value)
+                var ending = parseInt(document.getElementById("inputGoalWeight").value)
+                var perWeek = parseInt(document.getElementById("inputLoss").value)
+                var time = Math.ceil((starting - ending)/perWeek)
+                document.getElementById("suggestion").innerHTML = "With this plan, it will only take you " + time + " weeks to achieve your goals!"
+        } else {
+            document.getElementById("suggestion").innerHTML = "Select a weight loss plan to see how long it will take to achieve your goals!"
+        }
     }
 </script>

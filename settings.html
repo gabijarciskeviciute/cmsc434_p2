@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/our_css.css">
+        <style>
+            @font-face {
+                font-family: myFont;
+                src:url("fonts/Poppins-Regular.ttf");
+            }
+
+            .font_style {
+                font-family: myFont;
+            }
+        </style>
+    </head>
+    <body class="font_style">
+        <div class="phone-container row">
+            <div class="col-12 mt-2 ml-2">
+                <div class="row">
+                    <div class="col-3">
+                        <a href="home.html" class="btn btn-default btn-circle"><i class="fa fa-user">Home</i></a>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center mb-4">
+                            <h1>Settings</h1>
+                        </div>
+                    </div>
+                    <div class="col-3 text-right">
+                    </div>
+                </div>
+                <form class="form">
+    
+                    <div class="form-label-group mt-2">
+                        <select class="form-control" id="inputDiet">
+                            <option value="0">None</option>
+                            <option value="1">Vegetarian</option>
+                            <option value="2">Keto</option>
+                        </select>
+                        <label for="inputDiet">Dietary Preferences</label>
+                    </div>
+                    
+                    <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="submit" onclick="save();">Save</button>
+    
+                </form>
+
+                <script>
+                    window.onload = function(e) {
+                        document.getElementById("inputDiet").selectedIndex = parseInt(sessionStorage.diet);
+                    }
+
+                    function save() {
+                        sessionStorage.diet = parseInt(document.getElementById("inputDiet").value)
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
