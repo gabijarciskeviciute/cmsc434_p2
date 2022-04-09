@@ -37,7 +37,6 @@
         
                         <div class="form-label-group mt-2">
                             <select class="form-control" id="inputFood">
-                                <option value="0">Manual</option>
                                 <option value="2">Eggs</option>
                                 <option value="1/3">Broccoli</option>
                             </select>
@@ -48,7 +47,6 @@
                             <div class="col-6">
                                 <div class="form-label-group">
                                     <select class="form-control" id="inputAmount">
-                                        <option value="0">Manual</option>
                                         <option value="1/4">1/4</option>
                                         <option value="1/2">1/2</option>
                                         <option value="1/2">3/4</option>
@@ -64,7 +62,6 @@
                             <div class="col-6">
                                 <div class="form-label-group">
                                     <select class="form-control" id="inputPortion">
-                                        <option value="0">Manual</option>
                                         <option value="3">Tsp(s)</option>
                                         <option value="9">Tbsp(s)</option>
                                         <option value="144">Cup(s)</option>
@@ -82,38 +79,13 @@
                             </div>
                         </div>
 
-                        <div class="row text-center">
-                            <div class="col-12 text-center">
-                                <h3>or</h3>
-                            </div>
-                        </div>
-
-                        <div class="form-label-group mt-2">
-                            <input type="number" min="0" id="inputCalories" class="form-control" placeholder="Calories">
-                            <label for="inputCalories">Calories</label>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <div class="form-label-group">
-                                    <input type="number" min="0" id="inputProtein" class="form-control" placeholder="Protein">
-                                    <label for="inputProtein">Protein</label>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-label-group">
-                                    <input type="number" min="0" id="inputCarbs" class="form-control" placeholder="Carbs">
-                                    <label for="inputCarbs">Carbs</label>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-label-group">
-                                    <input type="number" min="0" id="inputFats" class="form-control" placeholder="Fats">
-                                    <label for="inputFats">Fats</label>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <button class="btn btn-primary btn-lg btn-block mt-4" type="reset" onclick="saveFood();">Save Food</button>
+                        <button class="btn btn-primary btn-lg btn-block mt-4 mb-4" type="reset" onclick="saveFood();">Save Food</button>
+                        
+                        <p class="text-center mt-4">If you can't find the food you want to input above, enter your food manually by clicking the button below.</p>
+                        
+                        <a href="add_food_manual.html" class="btn btn-info btn-lg btn-block mt-4">
+                            Enter Food Manually
+                        </a>
                     </form>    
                 </div>
             </div>
@@ -128,27 +100,14 @@
         var amount = document.getElementById("inputAmount");
         var portion = document.getElementById("inputPortion");
 
-        var calories = document.getElementById("inputCalories");
-        var protein = document.getElementById("inputProtein");
-        var carbs = document.getElementById("inputCarbs");
-        var fats = document.getElementById("inputFats");
-
-        if (parseFloat(food.value) != 0 && parseFloat(amount.value) != 0 && parseFloat(portion.value) != 0) {
-            sessionStorage.calories = parseInt(sessionStorage.calories) + Math.floor(parseFloat(food.value) * parseFloat(amount.value) * parseFloat(portion.value));
-            if (food.value == "2") {
-                sessionStorage.fats = parseInt(sessionStorage.fats) + Math.floor(0.1 * parseFloat(amount.value) * parseFloat(portion.value));
-                sessionStorage.carbs = parseInt(sessionStorage.carbs) + Math.floor(0.01 * parseFloat(amount.value) * parseFloat(portion.value));
-                sessionStorage.protein = parseInt(sessionStorage.protein) + Math.floor(0.13 * parseFloat(amount.value) * parseFloat(portion.value));
-            } else {
-                sessionStorage.carbs = parseInt(sessionStorage.carbs) + Math.floor(0.07 * parseFloat(amount.value) * parseFloat(portion.value));
-                sessionStorage.protein = parseInt(sessionStorage.protein) + Math.floor(0.04 * parseFloat(amount.value) * parseFloat(portion.value));
-            }
-            // do fats and carbs and stuff
-        } else if (calories.value != "" && protein.value != "" && carbs.value != "" && fats.value != "") {
-            sessionStorage.calories = parseInt(sessionStorage.calories) + parseInt(calories.value);
-            sessionStorage.protein = parseInt(sessionStorage.protein) + parseInt(protein.value);
-            sessionStorage.carbs = parseInt(sessionStorage.carbs) + parseInt(carbs.value);
-            sessionStorage.fats = parseInt(sessionStorage.fats) + parseInt(fats.value);
+        sessionStorage.calories = parseInt(sessionStorage.calories) + Math.floor(parseFloat(food.value) * parseFloat(amount.value) * parseFloat(portion.value));
+        if (food.value == "2") {
+            sessionStorage.fats = parseInt(sessionStorage.fats) + Math.floor(0.1 * parseFloat(amount.value) * parseFloat(portion.value));
+            sessionStorage.carbs = parseInt(sessionStorage.carbs) + Math.floor(0.01 * parseFloat(amount.value) * parseFloat(portion.value));
+            sessionStorage.protein = parseInt(sessionStorage.protein) + Math.floor(0.13 * parseFloat(amount.value) * parseFloat(portion.value));
+        } else {
+            sessionStorage.carbs = parseInt(sessionStorage.carbs) + Math.floor(0.07 * parseFloat(amount.value) * parseFloat(portion.value));
+            sessionStorage.protein = parseInt(sessionStorage.protein) + Math.floor(0.04 * parseFloat(amount.value) * parseFloat(portion.value));
         }
         location.href = 'home.html';
     }
