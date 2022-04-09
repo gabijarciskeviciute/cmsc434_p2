@@ -32,7 +32,7 @@
                         <div class="col-3 text-right">
                         </div>
                     </div>
-                    <form class="form">
+                    <form class="form mb-4">
         
                         <div class="form-label-group mt-2">
                             <select class="form-control" id="inputDiet">
@@ -46,6 +46,57 @@
                         <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="submit" onclick="save();">Save</button>
         
                     </form>
+
+                    <div class="text-center mt-4">
+                        <h2>Mock Events</h2>
+                    </div>
+                    
+                    <button type="button" style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-2" data-toggle="modal" data-target="#modal1">
+                        Behind on Exercise
+                    </button>
+                    <button type="button" style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-2" data-toggle="modal" data-target="#modal2">
+                        Exercise Goal Not Completed by Evening
+                    </button>
+                      
+                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Title" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Exercise Reminder</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            You haven't exercised as much today compared to previous days, would you like to start an exercise?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="add_exercise.html"><button type="button" class="btn btn-primary">Start Exercise</button></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Title" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Would you like to exercise?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                You haven't completed your exercise goal for today, would you like to exercise now to complete it?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a href="add_exercise.html"><button type="button" class="btn btn-primary">Start Exercise</button></a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
     
                     <script>
                         window.onload = function(e) {
@@ -59,5 +110,7 @@
                 </div>
             </div>
         </div>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
