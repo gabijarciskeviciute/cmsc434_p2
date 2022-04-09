@@ -16,104 +16,110 @@
             }
         </style>
     </head>
-    <body class="font_style">
-        <div class="phone-container row">
-            <div class="col-12 mt-2 ml-2 mr-2">
-                <div class="row">
-                    <div class="col-2">
-                        <a href="progress.html" class="btn btn-default btn-circle"><i class="fa fa-user">Graph</i></a>
-                    </div>
-                    <div class="col-8">
-                        <div class="text-center mb-4">
-                            <h1 id="home">Home</h1>
+    <body class="font_style background-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <div class="row">
+                        <div class="col-2">
+                            <a href="progress.html" class="btn btn-default btn-circle"><i class="fa fa-user">Graph</i></a>
+                        </div>
+                        <div class="col-8">
+                            <div class="text-center mb-4">
+                                <h1 id="home">Home</h1>
+                            </div>
+                        </div>
+                        <div class="col-2 text-right pl-1">
+                            <a href="settings.html" class="btn btn-default btn-circle"><i class="fa fa-user">Settings</i></a>
                         </div>
                     </div>
-                    <div class="col-2 text-right pl-1">
-                        <a href="settings.html" class="btn btn-default btn-circle"><i class="fa fa-user">Settings</i></a>
+                    <div class="text-left">
+                        <h2 id="levelText">Level 1</h2>
                     </div>
-                </div>
-                <div class="text-left">
-                    <h2 id="levelText">Level 1</h2>
-                </div>
-                <div class="progress">
-                    <div id="level" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
-                </div>
-                <div class="row">
-                    <div class="col-4" id="oldLevelText">
+                    <div class="progress">
+                        <div id="level" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
                     </div>
-                    <div class="col-4">
-                    </div>
-                    <div class="col-4 text-right" id="newLevelText">
-                        Level 2
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <h4>Today</h4>
-                </div>
-                <div class="progress">
-                    <div id="calories" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">0/1600</div>
-                </div>
-                <div class="text-left mt-2">
-                    <p>Calories</p>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2" id="firstSub">
-                        Protein
-                    </div>
-                    <div class="col-sm-6 mt-1">
-                        <div class="progress">
-                            <div id="firstSubProg" class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/60</div>
+                    <div class="row">
+                        <div class="col-4" id="oldLevelText">
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4 text-right" id="newLevelText">
+                            Level 2
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div id="secondSub" class="col-sm-2">
-                        Carbs
+                    <div class="text-center mt-4">
+                        <h4>Today</h4>
                     </div>
-                    <div class="col-sm-6 mt-1">
-                        <div class="progress">
-                            <div id="secondSubProg" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/1000</div>
+                    <div class="progress">
+                        <div id="calories" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">0/1600</div>
+                    </div>
+                    <div class="text-left mt-2">
+                        <p>Calories</p>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2" id="firstSub">
+                                Protein
+                            </div>
+                            <div class="col-6 mt-1">
+                                <div class="progress">
+                                    <div id="firstSubProg" class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/60</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div id="thirdSub" class="col-sm-2">
-                        Fats
-                    </div>
-                    <div class="col-sm-6 mt-1">
-                        <div class="progress">
-                            <div id="thirdSubProg" class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/40</div>
+                    <div class="container">
+                        <div class="row">
+                            <div id="secondSub" class="col-2">
+                                Carbs
+                            </div>
+                            <div class="col-6 mt-1">
+                                <div class="progress">
+                                    <div id="secondSubProg" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/1000</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="progress mt-4">
-                    <div id="steps" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/10000</div>
-                </div>
-                <div class="text-left mt-2">
-                    <p>Steps</p>
-                </div>
-                <div class="progress mt-4">
-                    <div id="exercise" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">0/30</div>
-                </div>
-                <div class="text-left mt-2">
-                    <p>Exercise goal (minutes)</p>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-sm-2">
+                    <div class="container">
+                        <div class="row">
+                            <div id="thirdSub" class="col-2">
+                                Fats
+                            </div>
+                            <div class="col-6 mt-1">
+                                <div class="progress">
+                                    <div id="thirdSubProg" class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/40</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <a href="add_food.html">
-                            <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Food</button>
-                        </a>
+                    <div class="progress mt-4">
+                        <div id="steps" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0/10000</div>
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <a href="add_exercise.html">
-                            <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Exercise</button>
-                        </a>
+                    <div class="text-left mt-2">
+                        <p>Steps</p>
                     </div>
-                    <div class="col-sm-2">
-                        
+                    <div class="progress mt-4">
+                        <div id="exercise" class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">0/30</div>
                     </div>
+                    <div class="text-left mt-2">
+                        <p>Exercise goal (minutes)</p>
+                    </div>
+                    <div class="container mb-3">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a href="add_food.html">
+                                    <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Food</button>
+                                </a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="add_exercise.html">
+                                    <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Exercise</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

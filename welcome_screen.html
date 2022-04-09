@@ -16,75 +16,77 @@
             }
         </style>
     </head>
-    <body class="font_style">
-        <div class="phone-container row">
-            <div class="col-12 mt-2 ml-2">
-                <form class="form">
-                    <div class="text-center mb-4">
-                        <h1>Fit.io</h1>
-                        <p>Welcome to Fit.io! In order to help you reach your goals, we want to get to know you better. Please enter the information below.</p>
-                    </div>
-                
-                    <div class="form-label-group">
-                        <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                        <label for="inputEmail">Name</label>
-                    </div>
-    
-                    <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputMeasure" onChange="changeMeasure();">
-                            <option value="0">Imperial</option>
-                            <option value="1">Metric</option>
-                        </select>
-                        <label for="inputMeasure">Preferred Measurement System</label>
-                    </div>
-                
-                    <div class="form-label-group mt-2">
-                        <input type="height" id="inputHeight" class="form-control" placeholder="Height (in)" required>
-                        <label id="height" for="inputHeight">Height (in)</label>
-                    </div>
-    
-                    <div class="form-label-group mt-2">
-                        <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight (lbs)"  onchange="weightTime()" required>
-                        <label id="weight" for="inputWeight">Starting Weight (lbs)</label>
-                    </div>
-    
-                    <div class="form-label-group mt-2">
-                        <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
-                        <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
-                    </div>
-    
-                    <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputExercise">
-                            <option value="0">Infrequent (Less than once per week)</option>
-                            <option value="1">Frequent (Once or twice per week)</option>
-                            <option value="2">Very Frequent (Three or more times per week)</option>
-                        </select>
-                        <label for="inputExercise">Frequency of Exercise</label>
-                    </div>
-    
-                    <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputLoss" onchange="weightTime()">
-                            <option value="0">None (Maintain Weight)</option>
-                            <option value="1">Normal (-1 pounds per week)</option>
-                            <option value="2">Aggressive (-2 pounds per week)</option>
-                        </select>
-                        <label for="inputLoss">Weight Loss Plan</label>
-                    </div>
-
-                    <p id="suggestion" style="font-size: small;">Select a weight loss plan to see how long it will take to achieve your goals!</p>
-    
-                    <div class="form-label-group mt-2">
-                        <select class="form-control" id="inputDiet">
-                            <option value="0">None</option>
-                            <option value="1">Vegetarian</option>
-                            <option value="2">Keto</option>
-                        </select>
-                        <label for="inputDiet">Dietary Preferences</label>
-                    </div>
+    <body class="font_style background-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form class="form">
+                        <div class="text-center mb-4">
+                            <h1>Fit.io</h1>
+                            <p>Welcome to Fit.io! In order to help you reach your goals, we want to get to know you better. Please enter the information below.</p>
+                        </div>
                     
-                    <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="reset" onclick="saveAndForward();">Get Started!</button>
-    
-                </form>    
+                        <div class="form-label-group">
+                            <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                            <label for="inputEmail">Name</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputMeasure" onChange="changeMeasure();">
+                                <option value="0">Imperial</option>
+                                <option value="1">Metric</option>
+                            </select>
+                            <label for="inputMeasure">Preferred Measurement System</label>
+                        </div>
+                    
+                        <div class="form-label-group mt-2">
+                            <input type="height" id="inputHeight" class="form-control" placeholder="Height (in)" required>
+                            <label id="height" for="inputHeight">Height (in)</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight (lbs)"  onchange="weightTime()" required>
+                            <label id="weight" for="inputWeight">Starting Weight (lbs)</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
+                            <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputExercise">
+                                <option value="0">Infrequent (Less than once per week)</option>
+                                <option value="1">Frequent (Once or twice per week)</option>
+                                <option value="2">Very Frequent (Three or more times per week)</option>
+                            </select>
+                            <label for="inputExercise">Frequency of Exercise</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputLoss" onchange="weightTime()">
+                                <option value="0">None (Maintain Weight)</option>
+                                <option value="1">Normal (-1 pounds per week)</option>
+                                <option value="2">Aggressive (-2 pounds per week)</option>
+                            </select>
+                            <label for="inputLoss">Weight Loss Plan</label>
+                        </div>
+
+                        <p id="suggestion" style="font-size: small;">Select a weight loss plan to see how long it will take to achieve your goals!</p>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputDiet">
+                                <option value="0">None</option>
+                                <option value="1">Vegetarian</option>
+                                <option value="2">Keto</option>
+                            </select>
+                            <label for="inputDiet">Dietary Preferences</label>
+                        </div>
+                        
+                        <button style="background-color: #9bdef3;" class="btn btn-block mt-3 mb-3" type="reset" onclick="saveAndForward();">Get Started!</button>
+
+                    </form>    
+                </div>
             </div>
         </div>
         <script src="js/bootstrap.min.js"></script>
