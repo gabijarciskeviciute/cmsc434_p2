@@ -33,7 +33,39 @@
                         </div>
                     </div>
                     <form class="form mb-4">
-        
+                        <div class="form-label-group">
+                            <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                            <label for="inputEmail">Name</label>
+                        </div>
+                    
+                        <div class="form-label-group mt-2">
+                            <input type="height" id="inputHeight" class="form-control" placeholder="Height (in)" required>
+                            <label id="height" for="inputHeight">Height (in)</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
+                            <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputExercise">
+                                <option value="0">Infrequent (Less than once per week)</option>
+                                <option value="1">Frequent (Once or twice per week)</option>
+                                <option value="2">Very Frequent (Three or more times per week)</option>
+                            </select>
+                            <label for="inputExercise">Frequency of Exercise</label>
+                        </div>
+
+                        <div class="form-label-group mt-2">
+                            <select class="form-control" id="inputLoss" onchange="weightTime()">
+                                <option value="0">None (Maintain Weight)</option>
+                                <option value="1">Normal (-1 pounds per week)</option>
+                                <option value="2">Aggressive (-2 pounds per week)</option>
+                            </select>
+                            <label for="inputLoss">Weight Loss Plan</label>
+                        </div>
+
                         <div class="form-label-group mt-2">
                             <select class="form-control" id="inputDiet">
                                 <option value="0">None</option>
@@ -43,7 +75,7 @@
                             <label for="inputDiet">Dietary Preferences</label>
                         </div>
                         
-                        <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="submit" onclick="save();">Save</button>
+                        <button style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-4" type="reset" onclick="save();">Save</button>
         
                     </form>
 
@@ -54,7 +86,7 @@
                     <button type="button" style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-2" data-toggle="modal" data-target="#modal1">
                         Behind on Exercise
                     </button>
-                    <button type="button" style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-2" data-toggle="modal" data-target="#modal2">
+                    <button type="button" style="background-color: #9bdef3;" class="btn btn-lg btn-block mt-2 mb-4" data-toggle="modal" data-target="#modal2">
                         Exercise Goal Not Completed by Evening
                     </button>
                       
@@ -96,15 +128,34 @@
                             </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
     
                     <script>
                         window.onload = function(e) {
                             document.getElementById("inputDiet").selectedIndex = parseInt(sessionStorage.diet);
+                            document.getElementById("inputLoss").selectedIndex = parseInt(sessionStorage.loss);
+
+                            if (sessionStorage.maxExercise == 20) {
+                                document.getElementById("inputExercise").selectedIndex = 0;
+                            } else if (sessionStorage.maxExercise == 30) {
+                                document.getElementById("inputExercise").selectedIndex = 1;
+                            } else {
+                                document.getElementById("inputExercise").selectedIndex = 2;
+                            }
+                            document.getElementById("inputName").value = sessionStorage.name;
+                            document.getElementById("inputGoalWeight").value = sessionStorage.goalWeight;
+                            document.getElementById("inputHeight").value = sessionStorage.height;
                         }
     
                         function save() {
-                            sessionStorage.diet = parseInt(document.getElementById("inputDiet").value)
+                            sessionStorage.diet = parseInt(document.getElementById("inputDiet").value);
+                            sessionStorage.height = parseInt(document.getElementById("inputHeight").value);
+                            sessionStorage.goalWeight = parseInt(document.getElementById("inputGoalWeight").value);
+                            sessionStorage.exercise = parseInt(document.getElementById("inputExercise").value);
+                            sessionStorage.loss = parseInt(document.getElementById("inputLoss").value);
+                            sessionStorage.diet = parseInt(document.getElementById("inputDiet").value);
+                            sessionStorage.name = document.getElementById("inputName").value;
+                            location.href = 'home.html';
                         }
                     </script>
                 </div>

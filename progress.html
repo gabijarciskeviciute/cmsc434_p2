@@ -39,12 +39,12 @@
                         <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-3">
                             Level 2
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-6">
                         </div>
-                        <div class="col-sm-2 text-right">
+                        <div class="col-3 text-right">
                             Level 4
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">1 day</div>
                     </div>
                     <div class="text-left mt-2">
-                        <p>Stay under calorie deficit 4 days in a row.</p>
+                        <p>Stay under your calorie limit 4 days in a row.</p>
                     </div>
                     <div class="progress mt-4">
                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">4 days</div>
@@ -67,7 +67,7 @@
                         <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 66%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">2 days</div>
                     </div>
                     <div class="text-left mt-2">
-                        <p>Get enough water intake 3 days in a row.</p>
+                        <p>Exercise 3 days in a row.</p>
                     </div>
                     <div class="text-left mt-4">
                         <h4>Graphs</h4>
@@ -76,14 +76,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
-                                <select id="what" class="form-control" onchange="updateGraph()">
+                                <select id="what" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph()">
                                     <option value="1">Calories</option>
                                     <option valu="2">Steps</option>
                                 </select>
                                 <label for="inputHeight">Goal</label>
                             </div>
-                            <div class="col-3">
-                                <select id="amount" class="form-control" onchange="updateGraph()">
+                            <div class="col-2">
+                                <select id="amount" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph()">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -91,15 +91,15 @@
                                 </select>
                                 <label for="inputHeight">Amount</label>
                             </div>
-                            <div class="col-3">
-                                <select id="time" class="form-control" onchange="updateGraph()">
+                            <div class="col-4">
+                                <select id="time" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph()">
                                     <option value="7">Week(s)</option>
                                     <option value="30">Month(s)</option>
                                 </select>
                                 <label for="inputHeight">Time</label>
                             </div>
                             <div class="ml-2">
-                                <canvas id="myChart" width="360" height="300"></canvas>
+                                <canvas id="myChart" width="450" height="300"></canvas>
                             </div>
     
                             <script src="js/bootstrap.min.js"></script>
@@ -165,7 +165,147 @@
                                 </script>
                         </div>
                     </div>
+                    
+                    <div class="container mt-4">
+                        <div class="row">
+                            <div class="col-3">
+                                <select id="what1" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph2()">
+                                    <option value="1">Calories</option>
+                                    <option value="2">Steps</option>
+                                </select>
+                                <label for="inputHeight">Goal</label>
+                            </div>
+                            <div class="col-3">
+                                <select id="what2" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph2()">
+                                    <option value="1">Calories</option>
+                                    <option value="2">Steps</option>
+                                </select>
+                                <label for="inputHeight">Goal</label>
+                            </div>
+                            <div class="col-2">
+                                <select id="amount2" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph2()">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                <label for="inputHeight">Amount</label>
+                            </div>
+                            <div class="col-4">
+                                <select id="time2" class="form-control" style="font-size: 14px !important; padding: 0" onchange="updateGraph2()">
+                                    <option value="7">Week(s)</option>
+                                    <option value="30">Month(s)</option>
+                                </select>
+                                <label for="inputHeight">Time</label>
+                            </div>
+                            <div class="ml-2">
+                                <canvas id="myChart2" width="450" height="300"></canvas>
+                            </div>
 
+                            <script>
+                                const ctx2 = document.getElementById('myChart2');
+                                let speedData2 = {
+                                    labels: [],
+                                    datasets: [{
+                                        label: "",
+                                        data: [],
+                                        borderColor: [],
+                                    }]
+                                };
+                                let lineChart2 = new Chart(ctx2, {
+                                    type: 'line',
+                                    data: speedData2
+                                });
+    
+    
+                                function updateGraph2() {
+                                    var what1 = document.getElementById("what1").value;
+                                    var what2 = document.getElementById("what2").value;
+                                    var amount = document.getElementById("amount2").value;
+                                    var time = document.getElementById("time2").value;
+    
+                                    label = amount + " "
+                                    if (time == "7") {
+                                        label += "Week(s)"
+                                    } else if (time == "30") {
+                                        label += "Month(s)"
+                                    } else {
+                                        label += "Year(s)"
+                                    }
+    
+                                    var length = parseInt(amount) * parseInt(time)
+    
+                                    if (what1 == "1" && what2 == "1") {
+                                        let newSpeedData = {
+                                            labels: Array.from(Array(length)).map((arg, index) => index),
+                                            datasets: [{
+                                                label: "Daily Calories Over " + label,
+                                                data: JSON.parse(sessionStorage.dailyCalories).slice(-(length)),
+                                                borderColor: ['#581845'],
+                                            },
+                                            {
+                                                label: "Daily Calories Over " + label,
+                                                data: JSON.parse(sessionStorage.dailyCalories).slice(-(length)),
+                                                borderColor: ['#ff5733'],
+                                            }]
+                                        };
+                                        lineChart2.data = newSpeedData
+                                        lineChart2.update()
+                                    } else if (what1 == "1" && what2 == "2") {
+                                        let newSpeedData = {
+                                            labels: Array.from(Array(length)).map((arg, index) => index),
+                                            datasets: [{
+                                                label: "Daily Calories Over " + label,
+                                                data: JSON.parse(sessionStorage.dailyCalories).slice(-(length)),
+                                                borderColor: ['#581845'],
+                                            },
+                                            {
+                                                label: "Daily Steps Over " + label,
+                                                data: JSON.parse(sessionStorage.dailySteps).slice(-(length)),
+                                                borderColor: ['#ff5733'],
+                                            }]
+                                        };
+                                        lineChart2.data = newSpeedData
+                                        lineChart2.update()
+                                    } else if (what1 == "2" && what2 == "1") {
+                                        let newSpeedData = {
+                                            labels: Array.from(Array(length)).map((arg, index) => index),
+                                            datasets: [{
+                                                label: "Daily Steps Over " + label,
+                                                data: JSON.parse(sessionStorage.dailySteps).slice(-(length)),
+                                                borderColor: ['#581845'],
+                                            },
+                                            {
+                                                label: "Daily Calories Over " + label,
+                                                data: JSON.parse(sessionStorage.dailyCalories).slice(-(length)),
+                                                borderColor: ['#ff5733'],
+                                            }]
+                                        };
+                                        lineChart2.data = newSpeedData
+                                        lineChart2.update()
+                                    } else {
+                                        let newSpeedData = {
+                                            labels: Array.from(Array(length)).map((arg, index) => index),
+                                            datasets: [{
+                                                label: "Daily Steps Over " + label,
+                                                data: JSON.parse(sessionStorage.dailySteps).slice(-(length)),
+                                                borderColor: ['#581845'],
+                                            },
+                                            {
+                                                label: "Daily Steps Over " + label,
+                                                data: JSON.parse(sessionStorage.dailySteps).slice(-(length)),
+                                                borderColor: ['#ff5733'],
+                                            }]
+                                        };
+                                        lineChart2.data = newSpeedData
+                                        lineChart2.update()
+                                    }
+                                }
+    
+                                updateGraph2()
+                                </script>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
