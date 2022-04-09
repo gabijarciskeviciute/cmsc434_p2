@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/our_css.css">
+        <style>
+            @font-face {
+                font-family: myFont;
+                src:url("fonts/Poppins-Regular.ttf");
+            }
+
+            .font_style {
+                font-family: myFont;
+            }
+        </style>
+    </head>
+    <body class="font_style background-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <div class="row">
+                        <div class="col-2">
+                            <a href="add_exercise.html" class="btn btn-default btn-circle"><i class="fa fa-user">Exercises</i></a>
+                        </div>
+                        <div class="col-8">
+                            <div class="text-center mb-4">
+                                <h1 id="home">Running</h1>
+                            </div>
+                        </div>
+                        <div class="col-2 text-right pl-1">
+                        </div>
+                    </div>
+                    
+                    <p class="text-center pl-2 pr-2">
+                        If you would like to interval train, you can use the timer below. Regardless, enter your total running time and miles below after your workout.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h2 id="runwalk" class="text-right mt-4">
+                                Run
+                            </h2>
+                        </div>
+                        <div class="col-6">
+                            <h2 id="timer" class="text-left mt-4">
+                                0:30
+                            </h2>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-secondary btn-lg btn-block mt-4" type="reset" onclick="resetTimer();">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button id="startButton" class="btn btn-primary btn-lg btn-block mt-4" type="reset" onclick="startTimer();">Start</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 mb-4 pb-4"></div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <div class="form-label-group">
+                                <input type="miles" id="inputMiles" class="form-control" placeholder="Miles">
+                                <label for="inputMiles">Miles</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-label-group">
+                                <input type="minutes" id="inputTime" class="form-control" placeholder="Time (min)">
+                                <label for="inputTime">Time (min)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block mt-4" type="reset" onclick="save();">Save</button>
+
+                    <script>
+                        function save() {
+                            sessionStorage.caloriesBurned = parseInt(sessionStorage.caloriesBurned) + parseInt(document.getElementById("inputTime").value) * 11;
+                            sessionStorage.exerciseMins = parseInt(sessionStorage.exerciseMins) + parseInt(document.getElementById("inputTime").value);
+                            sessionStorage.steps = parseInt(sessionStorage.steps) + parseFloat(document.getElementById("inputMiles").value) * 1500;
+                            location.href = "add_exercise.html"
+                        }
+
+                        timeoutId = 0;
+
+                        function resetTimer() {
+                            clearTimeout(timeoutId);
+                            document.getElementById("startButton").innerHTML = "Start"
+                            document.getElementById("startButton").onclick = startTimer;
+                            document.getElementById('timer').innerHTML = "0:30"
+                            document.getElementById('runwalk').innerHTML = "Run"
+
+                        }
+
+                        function stopTimer() {
+                            clearTimeout(timeoutId);
+                            document.getElementById("startButton").innerHTML = "Start"
+                            document.getElementById("startButton").onclick = startTimer;
+                        }
+
+                        function startTimer() {
+                            document.getElementById("startButton").onclick = stopTimer;
+                            document.getElementById("startButton").innerHTML = "Pause"
+                            var presentTime = document.getElementById('timer').innerHTML;
+                            var timeArray = presentTime.split(/[:]+/);
+                            var min = timeArray[0];
+                            var sec = timeArray[1] - 1;
+                            if (sec < 10 && sec >= 0) {
+                                sec = "0" + sec
+                            }
+                            if (sec < 0) {
+                                sec = "59"
+                            }
+                            if(sec==59){
+                                min-=1
+                            }
+                            if(min<0){
+                                min = 0
+                                if (document.getElementById('runwalk').innerHTML == "Run") {
+                                    document.getElementById('runwalk').innerHTML = "Walk"
+                                    sec = 45
+                                } else {
+                                    document.getElementById('runwalk').innerHTML = "Run"
+                                    sec = 30
+                                }
+                            }
+                            
+                            document.getElementById('timer').innerHTML = min + ":" + sec;
+                            timeoutId = setTimeout(startTimer, 1000);
+                          }
+                    </script>
+        
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

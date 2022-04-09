@@ -156,18 +156,23 @@
                 sessionStorage.maxCalories = 1600
                 sessionStorage.protein = 30
                 sessionStorage.maxProtein = 60
-                sessionStorage.carbs = 675
+                sessionStorage.carbs = 65
                 sessionStorage.maxCarbs = 1000
                 sessionStorage.fats = 10
                 sessionStorage.maxFats = 40
                 sessionStorage.steps = 2500
                 sessionStorage.maxSteps = 10000
-                sessionStorage.exerciseMins = 20
+                sessionStorage.exerciseMins = 10
                 sessionStorage.maxExercise = 30
+                sessionStorage.caloriesBurned = 0
+                sessionStorage.height = 72
+                sessionStorage.weight = 150
                 sessionStorage.dailyCalories = JSON.stringify([1529, 2100, 2168, 1324, 1257, 1075, 1196, 2353, 2437, 2212, 1850, 1661, 1035, 1486, 2103, 1537, 1848, 2110, 2376, 1359, 1263, 2409, 1979, 2420, 1851, 1906, 2101, 2361, 1975, 1367, 1659, 1373, 1186, 1797, 1013, 2430, 1900, 1866, 1838, 1999, 2172, 1868, 1263, 1895, 1548, 1111, 1777, 1171, 1836, 2166, 2140, 1312, 1585, 1636, 1877, 1314, 2092, 1078, 1901, 2259, 1315, 2362, 1082, 2072, 1661, 1879, 1971, 2165, 1729, 1560, 1699, 1600, 1995, 1708, 1030, 1422, 2384, 2057, 1079, 1964, 1366, 1068, 1064, 1472, 2212, 1922, 2204, 2270, 2281, 2384, 2223, 1619, 2184, 2094, 1766, 2454, 1011, 1653, 2412, 2297, 1164, 1630, 2093, 2187, 2260, 1126, 1516, 1390, 2237, 1992, 1244, 1192, 1044, 2171, 2229, 2370, 1271, 2492, 1655, 1801])
                 sessionStorage.dailySteps = JSON.stringify([4756, 12151, 5000, 14794, 4765, 11564, 13990, 12256, 7936, 5579, 12468, 8079, 12614, 12437, 13198, 5450, 7167, 3970, 4178, 5741, 8722, 5020, 2803, 4410, 8796, 14582, 14399, 7091, 13226, 8997, 12329, 8591, 3180, 10584, 5837, 14069, 12587, 13015, 8459, 9593, 7365, 14091, 6627, 13795, 13986, 11027, 14720, 12696, 13029, 10106, 4234, 14083, 12309, 4929, 13302, 12244, 13516, 2607, 4443, 13163, 10927, 11263, 9831, 3739, 2604, 8486, 10933, 10772, 10568, 9189, 4419, 8412, 14068, 3016, 13897, 11898, 9372, 3760, 3391, 5822, 2679, 8175, 4099, 12707, 5810, 12816, 11560, 5599, 11214, 7714, 3135, 9424, 10586, 11765, 13806, 3202, 10415, 3562, 9600, 4461, 5139, 13147, 11190, 14062, 9384, 9923, 9112, 6420, 7556, 4946, 8207, 6479, 3319, 10510, 13056, 8510, 4755, 2866, 8313, 13825])
             } else {
                 sessionStorage.xp = 0
+
+                sessionStorage.caloriesBurned = 0
     
                 sessionStorage.calories = 0
                 sessionStorage.maxCalories = Math.floor(sessionStorage.weight * 6.3 + 12.9 * sessionStorage.height)
@@ -205,7 +210,7 @@
     }
 
     function refresh() {
-        sessionStorage.maxCalories = Math.floor(sessionStorage.weight * 6.3 + 12.9 * sessionStorage.height)
+        sessionStorage.maxCalories = Math.floor(sessionStorage.weight * 6.3 + 12.9 * sessionStorage.height) + parseInt(sessionStorage.caloriesBurned)
         if (sessionStorage.loss == 1) {
             sessionStorage.maxCalories -= 500
         } else if (sessionStorage.loss == 2) {
