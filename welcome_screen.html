@@ -40,17 +40,17 @@
                         </div>
                     
                         <div class="form-label-group mt-2">
-                            <input type="height" id="inputHeight" class="form-control" placeholder="Height (in)" required>
+                            <input type="number" min="21" id="inputHeight" class="form-control" placeholder="Height (in)" required>
                             <label id="height" for="inputHeight">Height (in)</label>
                         </div>
 
                         <div class="form-label-group mt-2">
-                            <input type="weight" id="inputWeight" class="form-control" placeholder="Starting Weight (lbs)"  onchange="weightTime()" required>
+                            <input type="number" min="0" id="inputWeight" class="form-control" placeholder="Starting Weight (lbs)"  onchange="weightTime()" required>
                             <label id="weight" for="inputWeight">Starting Weight (lbs)</label>
                         </div>
 
                         <div class="form-label-group mt-2">
-                            <input type="goalWeight" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
+                            <input type="number" min="0" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
                             <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
                         </div>
 
