@@ -56,7 +56,7 @@
                             <button class="btn btn-secondary btn-lg btn-block mt-4" type="reset" onclick="resetTimer();">Reset</button>
                         </div>
                         <div class="col-6">
-                            <button id="startButton" class="btn btn-primary btn-lg btn-block mt-4" type="reset" onclick="startTimer();">Start</button>
+                            <button id="startButton" class="btn btn-success btn-lg btn-block mt-4" type="reset" onclick="startTimer();">Start</button>
                         </div>
                     </div>
 
@@ -95,6 +95,8 @@
                             document.getElementById("startButton").onclick = startTimer;
                             document.getElementById('timer').innerHTML = "0:30"
                             document.getElementById('runwalk').innerHTML = "Run"
+                            document.getElementById("startButton").classList.remove("btn-danger")
+                            document.getElementById("startButton").classList.add("btn-success")
 
                         }
 
@@ -102,11 +104,15 @@
                             clearTimeout(timeoutId);
                             document.getElementById("startButton").innerHTML = "Start"
                             document.getElementById("startButton").onclick = startTimer;
+                            document.getElementById("startButton").classList.remove("btn-danger")
+                            document.getElementById("startButton").classList.add("btn-success")
                         }
 
                         function startTimer() {
                             document.getElementById("startButton").onclick = stopTimer;
                             document.getElementById("startButton").innerHTML = "Pause"
+                            document.getElementById("startButton").classList.remove("btn-success")
+                            document.getElementById("startButton").classList.add("btn-danger")
                             var presentTime = document.getElementById('timer').innerHTML;
                             var timeArray = presentTime.split(/[:]+/);
                             var min = timeArray[0];

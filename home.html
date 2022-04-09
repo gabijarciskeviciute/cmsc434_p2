@@ -109,12 +109,12 @@
                         <div class="row">
                             <div class="col-6 text-center">
                                 <a href="add_food.html">
-                                    <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Food</button>
+                                    <button class="btn btn-sm btn-primary btn-block mt-4">Add Food</button>
                                 </a>
                             </div>
                             <div class="col-6 text-center">
                                 <a href="add_exercise.html">
-                                    <button style="background-color: #9bdef3;" class="btn btn-sm btn-block mt-4">Add Exercise</button>
+                                    <button class="btn btn-sm btn-primary btn-block mt-4">Add Exercise</button>
                                 </a>
                             </div>
                         </div>
@@ -244,10 +244,18 @@
         }
         document.getElementById("newLevelText").innerHTML = "Level " + (currentLevel + 1)
         document.getElementById("level").innerHTML = Math.floor((sessionStorage.xp % 1000) / 10) + "%"
-        document.getElementById("level").style = "width: " + Math.floor((sessionStorage.xp % 1000) / 10) + "%"
+        if (Math.floor((sessionStorage.xp % 1000) / 10) > 5) {
+            document.getElementById("level").style = "width: " + Math.floor((sessionStorage.xp % 1000) / 10) + "%;"
+        } else {
+            document.getElementById("level").style = "width: " + Math.floor((sessionStorage.xp % 1000) / 10) + "%; color: black;"
+        }
 
         document.getElementById("calories").innerHTML = sessionStorage.calories + "/" + sessionStorage.maxCalories
-        document.getElementById("calories").style = "width: " + Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) + "%"
+        if (Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) > 5) {
+            document.getElementById("calories").style = "width: " + Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) + "%;"
+        } else {
+            document.getElementById("calories").style = "width: " + Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) + "%; color: black;"
+        }
 
         if (sessionStorage.diet == 0) {
             // Carbs
@@ -255,52 +263,97 @@
             // Fats
             document.getElementById("firstSub").innerHTML = "Carbs"
             document.getElementById("firstSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
-            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+            if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
+            } else {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%; color: black;"
+            }
 
             document.getElementById("secondSub").innerHTML = "Protein"
             document.getElementById("secondSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
-            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+            if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"
+            } else {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%; color: black;"
+            }
 
             document.getElementById("thirdSub").innerHTML = "Fats"
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
-            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+            if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
+            } else {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%; color: black;"
+            }
         } else if (sessionStorage.diet == 1) {
             // Protein
             // Fats
             // Carbs
             document.getElementById("firstSub").innerHTML = "Protein"
             document.getElementById("firstSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
-            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+            if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"
+            } else {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%; color: black;"
+            }
 
             document.getElementById("secondSub").innerHTML = "Fats"
             document.getElementById("secondSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
-            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+            if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
+            } else {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%; color: black;"
+            }
 
             document.getElementById("thirdSub").innerHTML = "Carbs"
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
-            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+            if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
+            } else {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%; color: black;"
+            }
         } else {
             // Fats
             // Carbs
             // Protein
             document.getElementById("firstSub").innerHTML = "Fats"
             document.getElementById("firstSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
-            document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%"
+            if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
+            } else {
+                document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%; color: black;"
+            }
 
             document.getElementById("secondSub").innerHTML = "Carbs"
             document.getElementById("secondSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
-            document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%"
+            if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
+            } else {
+                document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%; color: black;"
+            }
 
             document.getElementById("thirdSub").innerHTML = "Protein"
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
-            document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%"
+            if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"
+            } else {
+                document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%; color: black;"
+            }
         }
 
         document.getElementById("steps").innerHTML = sessionStorage.steps + "/" + sessionStorage.maxSteps
-        document.getElementById("steps").style = "width: " + Math.floor(sessionStorage.steps/sessionStorage.maxSteps * 100) + "%"
+       
+        if (Math.floor(sessionStorage.steps/sessionStorage.maxSteps * 100) > 10) {
+            document.getElementById("steps").style = "width: " + Math.floor(sessionStorage.steps/sessionStorage.maxSteps * 100) + "%;"
+        } else {
+            document.getElementById("steps").style = "width: " + Math.floor(sessionStorage.steps/sessionStorage.maxSteps * 100) + "%; color: black;"
+        }
 
         document.getElementById("exercise").innerHTML = sessionStorage.exerciseMins + "/" + sessionStorage.maxExercise
-        document.getElementById("exercise").style = "width: " + Math.floor(sessionStorage.exerciseMins/sessionStorage.maxExercise * 100) + "%"
+        if (Math.floor(sessionStorage.exerciseMins/sessionStorage.maxExercise * 100) > 5) {
+            document.getElementById("exercise").style = "width: " + Math.floor(sessionStorage.exerciseMins/sessionStorage.maxExercise * 100) + "%;"
+        } else {
+            document.getElementById("exercise").style = "width: " + Math.floor(sessionStorage.exerciseMins/sessionStorage.maxExercise * 100) + "%; color: black;"
+        }
 
         if (Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) >= 90 && Math.floor(sessionStorage.calories/sessionStorage.maxCalories * 100) < 100) {
             $('#myModal').modal()
