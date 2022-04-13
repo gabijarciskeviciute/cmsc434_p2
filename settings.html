@@ -17,7 +17,7 @@
         </style>
     </head>
     <body class="font_style background-color">
-        <div class="container">
+        <div class="container" id="content" style="overflow-y: scroll">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="row">
@@ -34,17 +34,32 @@
                     </div>
                     <form class="form mb-4">
                         <div class="form-label-group">
-                            <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                            <input type="name" id="inputName" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Name" required>
                             <label for="inputEmail">Name</label>
                         </div>
                     
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-label-group mt-2">
+                                    <input type="number" min="21" id="inputHeight" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (ft)" required>
+                                    <label id="height" for="inputHeight">Height (ft)</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-label-group mt-2">
+                                    <input type="number" min="21" id="inputHeight2" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (in)" required>
+                                    <label id="height2" for="inputHeight">Height (in)</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-label-group mt-2">
-                            <input type="number" min="0" id="inputHeight" class="form-control" placeholder="Height (in)" required>
+                            <input type="number" min="0" id="inputHeight" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (in)" required>
                             <label id="height" for="inputHeight">Height (in)</label>
                         </div>
 
                         <div class="form-label-group mt-2">
-                            <input type="number" min="0" id="inputGoalWeight" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
+                            <input type="number" min="0" id="inputGoalWeight" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Goal Weight (lbs)"  onchange="weightTime()" required>
                             <label id="goalWeight" for="inputGoalWeight">Goal Weight (lbs)</label>
                         </div>
 
@@ -144,12 +159,13 @@
                             }
                             document.getElementById("inputName").value = sessionStorage.name;
                             document.getElementById("inputGoalWeight").value = sessionStorage.goalWeight;
-                            document.getElementById("inputHeight").value = sessionStorage.height;
+                            document.getElementById("inputHeight").value = parseInt(sessionStorage.height / 12);
+                            document.getElementById("inputHeight2").value = parseInt(sessionStorage.height % 12);
                         }
     
                         function save() {
                             sessionStorage.diet = parseInt(document.getElementById("inputDiet").value);
-                            sessionStorage.height = parseInt(document.getElementById("inputHeight").value);
+                            sessionStorage.height = parseInt(document.getElementById("inputHeight").value) * 12 + parseInt(document.getElementById("inputHeight2").value);
                             sessionStorage.goalWeight = parseInt(document.getElementById("inputGoalWeight").value);
                             sessionStorage.exercise = parseInt(document.getElementById("inputExercise").value);
                             sessionStorage.loss = parseInt(document.getElementById("inputLoss").value);
@@ -161,7 +177,22 @@
                 </div>
             </div>
         </div>
+        <div id="keyboard" class="container pl-0 pr-0" style="height: 0px">
+            <img src="keyboard.png" width="100%" height="100%">
+        </div>
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+
+<script>
+    function showKeyboard() {
+        document.getElementById("content").style.height = "420px";
+        document.getElementById("keyboard").style.height = "280px";
+    }
+
+    function hideKeyboard() {
+        document.getElementById("content").style.height = "700px";
+        document.getElementById("keyboard").style.height = "0px";
+    }
+</script>

@@ -17,7 +17,7 @@
         </style>
     </head>
     <body class="font_style background-color">
-        <div class="container">
+        <div class="container" id="content" style="overflow-y: scroll">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="row">
@@ -37,18 +37,16 @@
                         Enter the number of calories burned and the duration of exercise below.
                     </p>
 
-                
-
                     <div class="row mt-2">
                         <div class="col-6">
                             <div class="form-label-group">
-                                <input type="number" min="0" id="inputMiles" class="form-control" placeholder="Calories Burned">
+                                <input type="number" min="0" id="inputMiles" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Calories Burned">
                                 <label for="inputMiles">Calories Burned</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-label-group">
-                                <input type="number" min="0" id="inputTime" class="form-control" placeholder="Time (min)">
+                                <input type="number" min="0" id="inputTime" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Time (min)">
                                 <label for="inputTime">Time (min)</label>
                             </div>
                         </div>
@@ -58,8 +56,10 @@
 
                     <script>
                         function save() {
-                            sessionStorage.caloriesBurned = parseInt(sessionStorage.caloriesBurned) + parseInt(document.getElementById("inputTime").value);
-                            sessionStorage.exerciseMins = parseInt(sessionStorage.exerciseMins) + parseInt(document.getElementById("inputTime").value);
+                            if (document.getElementById("inputTime").value != "") {
+                                sessionStorage.caloriesBurned = parseInt(sessionStorage.caloriesBurned) + parseInt(document.getElementById("inputTime").value);
+                                sessionStorage.exerciseMins = parseInt(sessionStorage.exerciseMins) + parseInt(document.getElementById("inputTime").value);
+                            }
                             location.href = "add_exercise.html"
                         }
                     </script>
@@ -67,6 +67,20 @@
                 </div>
             </div>
         </div>
+        <div id="keyboard" class="container pl-0 pr-0" style="height: 0px">
+            <img src="keyboard.png" width="100%" height="100%">
+        </div>
+        <script>
+            function showKeyboard() {
+                document.getElementById("content").style.height = "420px";
+                document.getElementById("keyboard").style.height = "280px";
+            }
+
+            function hideKeyboard() {
+                document.getElementById("content").style.height = "700px";
+                document.getElementById("keyboard").style.height = "0px";
+            }
+        </script>
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
