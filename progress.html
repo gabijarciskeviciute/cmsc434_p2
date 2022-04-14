@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/our_css.css">
+        <link href="css/all.css" rel="stylesheet">
         <style>
             @font-face {
                 font-family: myFont;
@@ -17,12 +18,11 @@
         </style>
     </head>
     <body class="font_style background-color">
-        <div class="container">
+        <div class="container" id="content" style="overflow-y: scroll; height: 652px;">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="row">
                         <div class="col-3">
-                            <a href="home.html" class="btn btn-default btn-circle"><i class="fa fa-user">Home</i></a>
                         </div>
                         <div class="col-6">
                             <div class="text-center mb-4">
@@ -70,6 +70,96 @@
                         <p>Exercise 3 days in a row.</p>
                     </div>
                     <div class="text-left mt-4">
+                        <h4>Share Your Progress</h4>
+                        <p>If you would like to share your progress with someone via text or email, click the button below.</p>
+                        <button type="button" class="btn btn-primary btn-sm btn-block mt-2 mb-4" data-toggle="modal" data-target="#modal3">
+                            Share
+                        </button>
+                        <p class="mt-1">Alternatively, if you want to join a community filled with like-minded individuals to share your progress and tips, join our Discord using the button below.</p>
+                        
+                        <a href="https://www.discord.com/">
+                            <button type="button" class="btn btn-primary btn-sm btn-block mt-2 mb-4">
+                                <i class="fa-brands fa-discord"></i>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Title" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Exercise Time Starts Now</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>What data would you like to send?</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                    <label class="form-check-label" for="flexCheckDefault1">
+                                      Calories
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                    <label class="form-check-label" for="flexCheckDefault2">
+                                      Micronutrients (carbs, fats, and protein)
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                    <label class="form-check-label" for="flexCheckDefault3">
+                                      Exercise Time
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                                    <label class="form-check-label" for="flexCheckDefault4">
+                                      Steps
+                                    </label>
+                                  </div>
+
+                                <p class="pt-3">How much data do you want to send?</p>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <select id="amount2222" class="form-control" style="font-size: 14px !important; padding: 0">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        <label for="amount2222">Amount</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select id="time2222" class="form-control" style="font-size: 14px !important; padding: 0">
+                                            <option value="7">Week(s)</option>
+                                            <option value="30">Month(s)</option>
+                                        </select>
+                                        <label for="time2222">Time</label>
+                                    </div>
+                                </div>
+
+                                <p class="pt-3">To whom do you want to send the data?</p>
+
+                                <div class="form-label-group mt-2">
+                                    <input type="tel" id="inputWeight" class="form-control" placeholder="Recipient Phone Number"  onchange="weightTime()" required>
+                                </div>
+        
+                                <div class="form-label-group mt-2">
+                                    <input type="email" class="form-control" placeholder="Recipient Email"  onchange="weightTime()" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Send</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-left mt-4">
                         <h4>Graphs</h4>
                         <p>Select one of your goals and a time period to see progress over time.</p>
                     </div>
@@ -104,6 +194,8 @@
     
                             <script src="js/bootstrap.min.js"></script>
                             <script src="js/chart.js"></script>
+                            <script src="js/jquery-3.6.0.min.js"></script>
+                            <script src="js/bootstrap.bundle.min.js"></script>
                             <script>
                                 const ctx = document.getElementById('myChart');
                                 let speedData = {
@@ -308,6 +400,67 @@
                     </div>
                     
                 </div>
+            </div>
+        </div>
+        <div id="navbar" class="container" style="height: 48px; overflow: hidden;">
+            <div class="row" style="font-size: 15px; height: 48px">
+                <div class="col-1"></div>
+                <div class="col-2 text-center pl-0 pr-0">
+                    <a href="add_exercise.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-dumbbell fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="add_food.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-utensils fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="home.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-house fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="progress.html" class="text-success">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-bars-progress fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="settings.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-gear fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-1"></div>
             </div>
         </div>
     </body>

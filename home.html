@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/our_css.css">
+        <link href="css/all.css" rel="stylesheet">
         <style>
             @font-face {
                 font-family: myFont;
@@ -17,17 +18,19 @@
         </style>
     </head>
     <body class="font_style background-color">
-        <div class="container">
+        <div class="container" id="content" style="overflow-y: scroll; height: 652px;">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="row">
-
+                        <div class="col-2">
+                        </div>
                         <div class="col-8">
                             <div class="text-center mb-4">
                                 <h1 id="home">Home</h1>
                             </div>
                         </div>
-
+                        <div class="col-2">
+                        </div>
                     </div>
                     <div class="text-left">
                         <h2 id="levelText">Level 1</h2>
@@ -55,8 +58,8 @@
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-2" id="firstSub">
-                                Protein
+                            <div class="col-2">
+                                <a href="#" id="firstSub" data-toggle="tooltip" title="Title Here">Hyperlink Text</a>
                             </div>
                             <div class="col-6 mt-1">
                                 <div class="progress">
@@ -67,8 +70,8 @@
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div id="secondSub" class="col-2">
-                                Carbs
+                            <div class="col-2">
+                                <a href="#" id="secondSub" data-toggle="tooltip" title="Title Here">Hyperlink Text</a>
                             </div>
                             <div class="col-6 mt-1">
                                 <div class="progress">
@@ -79,8 +82,8 @@
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div id="thirdSub" class="col-2">
-                                Fats
+                            <div class="col-2">
+                                <a href="#" id="thirdSub" data-toggle="tooltip" title="Title Here">Hyperlink Text</a>
                             </div>
                             <div class="col-6 mt-1">
                                 <div class="progress">
@@ -100,20 +103,6 @@
                     </div>
                     <div class="text-left mt-2">
                         <p>Exercise goal (minutes)</p>
-                    </div>
-                    <div class="container mb-3">
-                        <div class="row">
-                            <div class="col-6 text-center">
-                                <a href="add_food.html">
-                                    <button class="btn btn-sm btn-primary btn-block mt-4">Add Food</button>
-                                </a>
-                            </div>
-                            <div class="col-6 text-center">
-                                <a href="add_exercise.html">
-                                    <button class="btn btn-sm btn-primary btn-block mt-4">Add Exercise</button>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                     
                 </div>
@@ -136,23 +125,66 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-3">
-                    <a href="progress.html" class="btn btn-sm btn-primary btn-block btn-circle"><i class="fa fa-user">Progress</i></a>
+        </div>
+        <div id="navbar" class="container" style="height: 48px; overflow: hidden;">
+            <div class="row" style="font-size: 15px; height: 48px">
+                <div class="col-1"></div>
+                <div class="col-2 text-center pl-0 pr-0">
+                    <a href="add_exercise.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-dumbbell fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
                 </div>
-
-                <div class="col-3">
-                    <a href="sources.html" class="btn btn-sm btn-primary btn-block btn-circle"><i class="fa fa-user">Sources</i></a>
+                <div class="col-2 text-center">
+                    <a href="add_food.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-utensils fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
                 </div>
-
-                <div class="col-3">
-                    <a href="add_exercise.html" class="btn btn-sm btn-primary btn-block btn-circle"><i class="fa fa-user">Exercises</i></a>
+                <div class="col-2 text-center">
+                    <a href="home.html" class="text-success">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-house fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
                 </div>
-
-                <div class="col-3 text-right pl-1">
-                    <a href="settings.html" class="btn btn-sm btn-primary btn-block btn-circle"><i class="fa fa-user">Settings</i></a>
+                <div class="col-2 text-center">
+                    <a href="progress.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-bars-progress fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
                 </div>
+                <div class="col-2 text-center">
+                    <a href="settings.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-gear fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-1"></div>
             </div>
         </div>
         <script src="js/jquery-3.6.0.min.js"></script>
@@ -161,10 +193,16 @@
 </html>
 
 <script>
+    $(document).ready(function() {
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    });
+    
     window.onload = function(e) {
         document.getElementById("home").innerHTML = "Hi, " + sessionStorage.name;
         if (sessionStorage.loaded != 1) {
             if (sessionStorage.name == "Jobob") {
+                sessionStorage.justDidExercise = 0
+                sessionStorage.lastExercise = 0
                 sessionStorage.xp = 3200
                 sessionStorage.calories = 1280
                 sessionStorage.maxCalories = 1600
@@ -184,6 +222,8 @@
                 sessionStorage.dailyCalories = JSON.stringify([1529, 2100, 2168, 1324, 1257, 1075, 1196, 2353, 2437, 2212, 1850, 1661, 1035, 1486, 2103, 1537, 1848, 2110, 2376, 1359, 1263, 2409, 1979, 2420, 1851, 1906, 2101, 2361, 1975, 1367, 1659, 1373, 1186, 1797, 1013, 2430, 1900, 1866, 1838, 1999, 2172, 1868, 1263, 1895, 1548, 1111, 1777, 1171, 1836, 2166, 2140, 1312, 1585, 1636, 1877, 1314, 2092, 1078, 1901, 2259, 1315, 2362, 1082, 2072, 1661, 1879, 1971, 2165, 1729, 1560, 1699, 1600, 1995, 1708, 1030, 1422, 2384, 2057, 1079, 1964, 1366, 1068, 1064, 1472, 2212, 1922, 2204, 2270, 2281, 2384, 2223, 1619, 2184, 2094, 1766, 2454, 1011, 1653, 2412, 2297, 1164, 1630, 2093, 2187, 2260, 1126, 1516, 1390, 2237, 1992, 1244, 1192, 1044, 2171, 2229, 2370, 1271, 2492, 1655, 1801, 0])
                 sessionStorage.dailySteps = JSON.stringify([4756, 12151, 5000, 14794, 4765, 11564, 13990, 12256, 7936, 5579, 12468, 8079, 12614, 12437, 13198, 5450, 7167, 3970, 4178, 5741, 8722, 5020, 2803, 4410, 8796, 14582, 14399, 7091, 13226, 8997, 12329, 8591, 3180, 10584, 5837, 14069, 12587, 13015, 8459, 9593, 7365, 14091, 6627, 13795, 13986, 11027, 14720, 12696, 13029, 10106, 4234, 14083, 12309, 4929, 13302, 12244, 13516, 2607, 4443, 13163, 10927, 11263, 9831, 3739, 2604, 8486, 10933, 10772, 10568, 9189, 4419, 8412, 14068, 3016, 13897, 11898, 9372, 3760, 3391, 5822, 2679, 8175, 4099, 12707, 5810, 12816, 11560, 5599, 11214, 7714, 3135, 9424, 10586, 11765, 13806, 3202, 10415, 3562, 9600, 4461, 5139, 13147, 11190, 14062, 9384, 9923, 9112, 6420, 7556, 4946, 8207, 6479, 3319, 10510, 13056, 8510, 4755, 2866, 8313, 13825, 0])
             } else {
+                sessionStorage.justDidExercise = 0
+                sessionStorage.lastExercise = 0
                 sessionStorage.xp = 0
 
                 sessionStorage.caloriesBurned = 0
@@ -276,6 +316,7 @@
             // Protein
             // Fats
             document.getElementById("firstSub").innerHTML = "Carbs"
+            document.getElementById("firstSub").title = "The body's primary fuel."
             document.getElementById("firstSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
             if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
                 document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
@@ -284,6 +325,7 @@
             }
 
             document.getElementById("secondSub").innerHTML = "Protein"
+            document.getElementById("secondSub").title = "The body's key to repairing cells."
             document.getElementById("secondSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
             if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
                 document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"
@@ -292,6 +334,7 @@
             }
 
             document.getElementById("thirdSub").innerHTML = "Fats"
+            document.getElementById("thirdSub").title = "The body's energy reserve and organ protection."
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
             if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
                 document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
@@ -303,6 +346,7 @@
             // Fats
             // Carbs
             document.getElementById("firstSub").innerHTML = "Protein"
+            document.getElementById("firstSub").title = "The body's key to repairing cells."
             document.getElementById("firstSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
             if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
                 document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"
@@ -311,6 +355,7 @@
             }
 
             document.getElementById("secondSub").innerHTML = "Fats"
+            document.getElementById("secondSub").title = "The body's energy reserve and organ protection."
             document.getElementById("secondSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
             if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
                 document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
@@ -319,6 +364,7 @@
             }
 
             document.getElementById("thirdSub").innerHTML = "Carbs"
+            document.getElementById("thirdSub").title = "The body's primary fuel."
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
             if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
                 document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
@@ -330,6 +376,7 @@
             // Carbs
             // Protein
             document.getElementById("firstSub").innerHTML = "Fats"
+            document.getElementById("firstSub").title = "The body's energy reserve and organ protection."
             document.getElementById("firstSubProg").innerHTML = sessionStorage.fats + "/" + sessionStorage.maxFats
             if (Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) > 5) {
                 document.getElementById("firstSubProg").style = "width: " + Math.floor(sessionStorage.fats/sessionStorage.maxFats * 100) + "%;"
@@ -338,6 +385,7 @@
             }
 
             document.getElementById("secondSub").innerHTML = "Carbs"
+            document.getElementById("secondSub").title = "The body's primary fuel."
             document.getElementById("secondSubProg").innerHTML = sessionStorage.carbs + "/" + sessionStorage.maxCarbs
             if (Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) > 5) {
                 document.getElementById("secondSubProg").style = "width: " + Math.floor(sessionStorage.carbs/sessionStorage.maxCarbs * 100) + "%;"
@@ -346,6 +394,7 @@
             }
 
             document.getElementById("thirdSub").innerHTML = "Protein"
+            document.getElementById("thirdSub").title = "The body's key to repairing cells."
             document.getElementById("thirdSubProg").innerHTML = sessionStorage.protein + "/" + sessionStorage.maxProtein
             if (Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) > 5) {
                 document.getElementById("thirdSubProg").style = "width: " + Math.floor(sessionStorage.protein/sessionStorage.maxProtein * 100) + "%;"

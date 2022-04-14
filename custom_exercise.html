@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/our_css.css">
+        <link href="css/all.css" rel="stylesheet">
         <style>
             @font-face {
                 font-family: myFont;
@@ -17,19 +18,14 @@
         </style>
     </head>
     <body class="font_style background-color">
-        <div class="container" id="content" style="overflow-y: scroll">
+        <div class="container" id="content" style="overflow-y: scroll; height: 652px;">
             <div class="row">
                 <div class="col-12 mt-2">
                     <div class="row">
-                        <div class="col-2">
-                            <a href="add_exercise.html" class="btn btn-default btn-circle"><i class="fa fa-user">Exercises</i></a>
-                        </div>
-                        <div class="col-8">
+                        <div class="col-12">
                             <div class="text-center mb-4">
                                 <h1 id="home">Custom Exercise</h1>
                             </div>
-                        </div>
-                        <div class="col-2 text-right pl-1">
                         </div>
                     </div>
                     
@@ -37,22 +33,24 @@
                         Enter the number of calories burned and the duration of exercise below.
                     </p>
 
-                    <div class="row mt-2">
-                        <div class="col-6">
-                            <div class="form-label-group">
-                                <input type="number" min="0" id="inputMiles" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Calories Burned">
-                                <label for="inputMiles">Calories Burned</label>
+                    <form class="form" onsubmit="save(); return false;">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <div class="form-label-group">
+                                    <input type="number" min="0" id="inputMiles" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Calories Burned" required>
+                                    <label for="inputMiles">Calories Burned</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-label-group">
+                                    <input type="number" min="0" id="inputTime" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Time (min)" required>
+                                    <label for="inputTime">Time (min)</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-label-group">
-                                <input type="number" min="0" id="inputTime" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Time (min)">
-                                <label for="inputTime">Time (min)</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <button class="btn btn-primary btn-lg btn-block mt-4" type="reset" onclick="save();">Save</button>
+                        <button class="btn btn-primary btn-lg btn-block mt-4" type="submit">Save</button>
+                    </form>
 
                     <script>
                         function save() {
@@ -70,15 +68,78 @@
         <div id="keyboard" class="container pl-0 pr-0" style="height: 0px">
             <img src="keyboard.png" width="100%" height="100%">
         </div>
+        <div id="navbar" class="container" style="height: 48px; overflow: hidden;">
+            <div class="row" style="font-size: 15px; height: 48px">
+                <div class="col-1"></div>
+                <div class="col-2 text-center pl-0 pr-0">
+                    <a href="add_exercise.html" class="text-success">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-dumbbell fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="add_food.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-utensils fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="home.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-house fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="progress.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-bars-progress fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-2 text-center">
+                    <a href="settings.html" class="text-primary">
+                        <table style="height: 100%; width: 100%; padding-left: 11px;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle"><i class="fa-solid fa-gear fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
         <script>
             function showKeyboard() {
                 document.getElementById("content").style.height = "420px";
                 document.getElementById("keyboard").style.height = "280px";
+                document.getElementById("navbar").style.height = "0px";
             }
 
             function hideKeyboard() {
-                document.getElementById("content").style.height = "700px";
+                document.getElementById("content").style.height = "652px";
                 document.getElementById("keyboard").style.height = "0px";
+                document.getElementById("navbar").style.height = "48px";
             }
         </script>
         <script src="js/jquery-3.6.0.min.js"></script>

@@ -20,7 +20,7 @@
         <div id="content" class="container" style="overflow-y: scroll">
             <div class="row">
                 <div class="col-12">
-                    <form class="form">
+                    <form class="form" onsubmit="saveAndForward(); return false;">
                         <div class="text-center mb-4">
                             <h1>Fit.io</h1>
                             <p>Welcome to Fit.io! In order to help you reach your goals, we want to get to know you better. Please enter the information below.</p>
@@ -42,13 +42,13 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-label-group mt-2">
-                                    <input type="number" min="21" id="inputHeight" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (ft)" required>
+                                    <input type="number" min="0" id="inputHeight" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (ft)" required>
                                     <label id="height" for="inputHeight">Height (ft)</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-label-group mt-2">
-                                    <input type="number" min="21" id="inputHeight2" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (in)" required>
+                                    <input type="number" min="0" id="inputHeight2" onfocus="showKeyboard();" onblur="hideKeyboard();" class="form-control" placeholder="Height (in)" required>
                                     <label id="height2" for="inputHeight">Height (in)</label>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                             <label for="inputDiet">Dietary Preferences</label>
                         </div>
                         
-                        <button class="btn btn-primary btn-block mt-3 mb-3" type="reset" onclick="saveAndForward();">Get Started!</button>
+                        <button class="btn btn-primary btn-block mt-3 mb-3" type="submit">Get Started!</button>
 
                     </form>    
                 </div>
@@ -133,7 +133,7 @@
         sessionStorage.loss = parseInt(document.getElementById("inputLoss").value);
         sessionStorage.diet = parseInt(document.getElementById("inputDiet").value);
         sessionStorage.loaded = 0
-        location.href = 'home.html';
+        location.href = 'info.html';
     }
 
     function changeMeasure() {

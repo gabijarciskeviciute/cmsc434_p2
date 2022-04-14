@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/our_css.css">
+        <link href="css/all.css" rel="stylesheet">
+        <style>
+            @font-face {
+                font-family: myFont;
+                src:url("fonts/Poppins-Regular.ttf");
+            }
+
+            .font_style {
+                font-family: myFont;
+            }
+        </style>
+    </head>
+    <body class="font_style background-color">
+        <div id="content" class="container" style="overflow-y: scroll">
+            <div class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <div class="text-center mb-4">
+                        <h1 id="home">Introduction</h1>
+                    </div>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">Thank you so much for that information! We have created a personalized plan for you.</p>
+                    
+                    <p class="text-center">On the next page, you'll see multiple progress bars for things like calories, steps, and macronutrients (carbs, fats, and protein).</p>
+
+                    <p class="text-center">Macronutrients are the nutritional components of the foods that we eat. Carbs are the body's primary fuel, protien helps the body repair its cells, and fats store the body's energy reserve and provide protection for the organs. </p>
+
+                    <p class="text-center">For your plan, you should try to fill up every progress bar daily (but not go much over). <span id="customPlan"></span></p>
+                    
+                    <button class="btn btn-primary btn-block mt-4 mb-3" type="reset" onclick="forward();">Get Started!</button>
+
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+
+<script>
+    window.onload = function(e) {
+        if (parseInt(sessionStorage.weight) > parseInt(sessionStorage.goalWeight) && parseInt(sessionStorage.loss) != 0) {
+            document.getElementById("customPlan").innerHTML =  "Based on the information you entered, it will take you about " + Math.ceil((sessionStorage.weight - sessionStorage.goalWeight)/sessionStorage.loss) + " weeks to reach your goal weight as long as you follow the plan."
+        }
+    }
+
+    function forward() {
+        location.href = 'home.html';
+    }
+</script>
